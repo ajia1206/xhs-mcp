@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>2025年10月铜期货行情概览</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      body {
+        margin: 2rem auto;
+        max-width: 960px;
+      }
+
+      canvas {
+        margin: 2rem 0;
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+
+      .metric-card {
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+      }
+
+      .metric-card h3 {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #636b74;
+      }
+
+      .metric-card p {
+        margin: 0.25rem 0 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+    <script defer>
+      async function bootstrap() {
+        const resp = await fetch("./data/cu_main_series.json");
+        if (!resp.ok) {
+          throw new Error("无法加载数据文件 data/cu_main_series.json");
+        }
+        const rows = await resp.json();
+        rows.sort((a, b) => a.trade_date.localeCompare(b.trade_date));
+
+        const labels = rows.map((row) => row.date_iso);
+        const prices = rows.map((row) => row.close_price);
+        const openInterest = rows.map((row) => row.open_interest);
+        const volumes = rows.map((row) => row.volume);
+
+        updateMetrics(rows);
+        renderPriceChart(labels, prices, openInterest);
+        renderVolumeChart(labels, volumes);
+      }
+
+      function updateMetrics(rows) {
+        if (!rows.length) return;
+        const first = rows[0];
+        const last = rows[rows.length - 1];
+        const priceChange = last.close_price - first.close_price;
+        const priceChangePct = (priceChange / first.close_price) * 100;
+
+        document.querySelector("#metric-start span").textContent = `${first.date_iso} / ¥${first.close_price.toLocaleString()}`;
+        document.querySelector("#metric-end span").textContent = `${last.date_iso} / ¥${last.close_price.toLocaleString()}`;
+        const changeEl = document.querySelector("#metric-change span");
+        changeEl.textContent = `${priceChange >= 0 ? "+" : ""}${priceChange.toFixed(0)} (${priceChangePct.toFixed(2)}%)`;
+        changeEl.style.color = priceChange >= 0 ? "#00875a" : "#d53824";
+      }
+
+      function renderPriceChart(labels, prices, openInterest) {
+        const ctx = document.getElementById("priceChart").getContext("2d");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels,
+            datasets: [
+              {
+                type: "line",
+                label: "收盘价 (元/吨)",
+                data: prices,
+                borderColor: "#2563eb",
+                backgroundColor: "rgba(37, 99, 235, 0.15)",
+                borderWidth: 2,
+                tension: 0.25,
+                yAxisID: "y",
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                fill: true,
+              },
+              {
+                label: "持仓量 (手)",
+                data: openInterest,
+                backgroundColor: "rgba(16, 185, 129, 0.35)",
+                borderColor: "rgba(16, 185, 129, 0.7)",
+                borderWidth: 1,
+                yAxisID: "y1",
+                order: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            interaction: {
+              mode: "index",
+              intersect: false,
+            },
+            plugins: {
+              legend: {
+                position: "top",
+              },
+              tooltip: {
+                callbacks: {
+                  label(ctx) {
+                    const value = ctx.parsed.y;
+                    const dataset = ctx.dataset.label;
+                    return `${dataset}: ${value.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              y: {
+                type: "linear",
+                position: "left",
+                title: {
+                  display: true,
+                  text: "元/吨",
+                },
+                ticks: {
+                  callback: (value) => value.toLocaleString(),
+                },
+                grid: {
+                  drawOnChartArea: false,
+                },
+              },
+              y1: {
+                type: "linear",
+                position: "right",
+                title: {
+                  display: true,
+                  text: "持仓量 (手)",
+                },
+                ticks: {
+                  callback: (value) => value.toLocaleString(),
+                },
+                grid: {
+                  drawOnChartArea: false,
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "交易日期",
+                },
+              },
+            },
+          },
+        });
+      }
+
+      function renderVolumeChart(labels, volumes) {
+        const ctx = document.getElementById("volumeChart").getContext("2d");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels,
+            datasets: [
+              {
+                label: "成交量 (手)",
+                data: volumes,
+                backgroundColor: "rgba(249, 115, 22, 0.6)",
+                borderColor: "rgba(249, 115, 22, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label(ctx) {
+                    const value = ctx.parsed.y;
+                    return `成交量: ${value.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              y: {
+                title: {
+                  display: true,
+                  text: "手",
+                },
+                ticks: {
+                  callback: (value) => value.toLocaleString(),
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "交易日期",
+                },
+              },
+            },
+          },
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        bootstrap().catch((err) => {
+          console.error(err);
+          const message = document.createElement("p");
+          message.style.color = "#d53824";
+          message.textContent = `加载可视化失败: ${err.message}`;
+          document.body.appendChild(message);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>2025年10月铜期货主力合约走势</h1>
+      <p>数据来源：上海期货交易所日交易快讯（futures_kx），按每日最高持仓量合约自动选取。</p>
+    </header>
+
+    <section class="metrics">
+      <div class="metric-card" id="metric-start">
+        <h3>起始收盘价</h3>
+        <p><span>—</span></p>
+      </div>
+      <div class="metric-card" id="metric-end">
+        <h3>最新收盘价</h3>
+        <p><span>—</span></p>
+      </div>
+      <div class="metric-card" id="metric-change">
+        <h3>期间涨跌</h3>
+        <p><span>—</span></p>
+      </div>
+    </section>
+
+    <canvas id="priceChart" height="320"></canvas>
+    <canvas id="volumeChart" height="220"></canvas>
+
+    <footer>
+      <small>
+        提示：页面默认从 <code>web/data/cu_main_series.json</code> 读取数据。若使用本地浏览器直接打开，
+        请通过 <code>python -m http.server</code> 或任意静态服务器启用 HTTP 访问，以避免浏览器安全限制。
+      </small>
+    </footer>
+  </body>
+</html>

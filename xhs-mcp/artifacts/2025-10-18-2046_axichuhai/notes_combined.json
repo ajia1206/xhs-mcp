@@ -1,0 +1,764 @@
+[
+  {
+    "id": "682f0571000000002202e44a",
+    "title": "AI工作流是普通人做自媒体快速起号的神器",
+    "xsecToken": "ABThvJjU7dvUu50wqHUPGAm1F9lgJAQ1Iq_mt8z8K5o7w=",
+    "index": 0,
+    "has_detail": true,
+    "likes": 117,
+    "collects": 136,
+    "shares": 0,
+    "comments": 12,
+    "desc": "自媒体快速起号的核心其实就5步：\n\t\n1. 找一个对标博主\n2. 用AI分析他们的文案套路和风格\n3. 找到最近1周小红书上的爆款笔记\n4. 搭建仿写工作流：输入爆文→按照对标博主风格改写\n5. 把爆文链接丢进去，直接输出新内容\n\t\n这么做的底层逻辑：\n让头部博主的文案能力帮你洗稿已验证的市场需求\n选题方向已经被爆文验证过了\n文案风格又被大V验证过\n\t\n双buff加持下，很难不火\n#ai[话题]# #ai工具[话题]# #coze[话题]# #ai写作[话题]# #智能体[话题]# #AI写作[话题]# #自媒体[话题]#",
+    "timestamp": 1747912049000,
+    "published_at": "2025-05-22 11:07:29",
+    "tags": [
+      "ai",
+      "ai工具",
+      "coze",
+      "ai写作",
+      "智能体",
+      "AI写作",
+      "自媒体"
+    ],
+    "images_count": 5,
+    "comment_samples": [
+      {
+        "content": "AI工作流已更新在AI自媒体副业收入指南",
+        "likeCount": "1"
+      },
+      {
+        "content": "好思路",
+        "likeCount": "1"
+      },
+      {
+        "content": "没用，博主有粉丝基础",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68f0ad2f0000000007002583",
+    "title": "GLM-4.6实测：为什么这个模型能在国外爆火",
+    "xsecToken": "ABat3SMAmE4NF_7EgAc6udYh21OhqK-921qLB6pporzP8=",
+    "index": 1,
+    "has_detail": true,
+    "likes": 22,
+    "collects": 15,
+    "shares": 0,
+    "comments": 9,
+    "desc": "最近国产大模型真的太卷了！\n\t\n智谱在国庆前一天，悄悄丢出一个大招—GLM-4.6。经过一个假期的发酵，直接在海外AI圈里火了，还登上了全球权威榜单。\n\t\n尤其是在全球公认的LLM Arena（一个基于用户匿名盲测的平台）上，GLM-4.6在所有开源模型里排到了第一。\n\t\nTim Dettmers（美国艾伦AI研究所科学家）对GLM-4.6的评价:“非常接近Anthoripic的Agentic风格”，这句话直接对标顶级模型。\n\t\n作为一个AI编程开发者，我很好奇它在真实编程场景下到底表现如何。\n\t\n于是，我把它接入到claude code里，实测一下用它来开发应用的效率。\n\t\n我给它设了3小挑战：\n\t\n1⃣️ 一句话生成科普网站（见图4）\n提示词：生成一个介绍宇宙星系的科普网站，要求设计有科幻感，有交互动效\n\t\n2⃣️ 一句话做一个五子棋小游戏（见图5）\n提示词：生成一个五子棋小游戏，页面精致\n\t\n3⃣️ 做一个搜索引擎（见图6）\n提示词：创建一个赛博朋克风格的搜索引擎网站\n\t\n整个过程非常流畅，我只需要用自然语言描述需求，几分钟之内，3个项目的雏形就都出来了，特别是页面的精美度和功能的完成度，超出了我的预期。\n\t\n这里可能很多朋友关心我是怎么把GLM-4.6在claude code里用起来，分享一下我的配置方法：\n\t\n【claude code + GLM-4.6 配置教程】\n\t\n1⃣️安装 Node\n打开终端，输入npm-v，测试npm 是否正确安装\n\t\n2⃣️ 安装claude code\n在终端输入npm install -g @anthropic-ai/claude-code，回车\n\t\n3⃣️ 获取GLM 4.6的API key\n\t\n4⃣️ 在claude code接入GLM 4.6\n在终端输入npx zcf，在BASE _URL处填写智普的url，在API_KEY处填写你的key，然后按n，按回车即可。\n\t\n对于高强度的编程任务来说，等于有了一个不知疲倦的“高级程序员”随时待命，性价比还是挺高的。\n#智谱[话题]#  #GLM[话题]#  #ai编程[话题]##ai[话题]# #独立开发[话题]#",
+    "timestamp": 1760603439000,
+    "published_at": "2025-10-16 08:30:39",
+    "tags": [
+      "智谱",
+      "GLM",
+      "ai编程",
+      "ai",
+      "独立开发"
+    ],
+    "images_count": 6,
+    "comment_samples": [
+      {
+        "content": "便宜，快，够用。这三个优点足以称霸简单任务",
+        "likeCount": "0"
+      },
+      {
+        "content": "算了吧",
+        "likeCount": "0"
+      },
+      {
+        "content": "试着还行",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68ee52fa0000000007036885",
+    "title": "X上疯传的批量生成短视频开源工具",
+    "xsecToken": "ABFgGNlRwHrsKIdNA5KagaA_jGud--nfh0KH_x8mCTD2o=",
+    "index": 2,
+    "has_detail": true,
+    "likes": 9,
+    "collects": 21,
+    "shares": 0,
+    "comments": 1,
+    "desc": "GitHub上看到的「批量生成短视频」开源工具——AI Short Video Factory\n\t\n一句提示词，批量生成短视频内容。\n\t\n主要功能：\n- AI 根据提示词自动生成脚本\n- 自动语音合成 + 自然语气播报\n- 智能剪辑 + 自动字幕 + 加特效\n- 支持批量处理，按模板合成\n- 多语言支持，中英文都能跑\n- 跨平台客户端（Win / macOS / Linux）\n- 本地运行，隐私友好\n\t\n如果想做短视频自动化项目，可以研究一下这个\n#ai[话题]# #短视频[话题]# #ai工具[话题]# #ai短视频[话题]#",
+    "timestamp": 1760449274000,
+    "published_at": "2025-10-14 13:41:14",
+    "tags": [
+      "ai",
+      "短视频",
+      "ai工具",
+      "ai短视频"
+    ],
+    "images_count": 2,
+    "comment_samples": [
+      {
+        "content": "特效跑的咋样？",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68df91bf0000000007033c1f",
+    "title": "用 AI 做百万美元级别广告短片",
+    "xsecToken": "ABew5cG2LYTndf0xapHjjEKEwdNIDkZQ6XQd4fAWN5oT8=",
+    "index": 3,
+    "has_detail": false,
+    "likes": 14,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68dde79e000000000700ae2f",
+    "title": "OpenAI发布sora 2这招很牛，不卷模型卷应用",
+    "xsecToken": "ABLyzx7pI0COL_F-MMfJclR-zSb7zYSfP1n08CKfC7QNA=",
+    "index": 4,
+    "has_detail": false,
+    "likes": 24,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68da4752000000001203c073",
+    "title": "发现一个邪修起号的方法，免费分享出来",
+    "xsecToken": "ABuVVY8owCbUSS8QIWY96Pnn2Hsy105H_3PN-B1wE6qzE=",
+    "index": 5,
+    "has_detail": true,
+    "likes": 14,
+    "collects": 19,
+    "shares": 0,
+    "comments": 0,
+    "desc": "最近Flowith发布了大招，第一时间去体验了。\n\t\n我一直很关注他们的功能，因为每次在他们的新功能上都能发现用来起号的玩法💯\n\t\n这次体验的新功能叫【Context Playground】，过去你跟AI对话，如果结果不满意就要反复输入提示，抽盲盒一样的等结果。\n\t\n现在你可以随时修改AI给的答案，让它沿着你修改后的思路继续思考，你可以不断打断AI的思路矫正它。\n\t\n💡通过这个功能再结合另一个新功能【批量生图】，我发现了一个邪修起号思路：批量生成童话绘本\n\t\n你去搜“童话故事”，会发现很多高赞的笔记，而笔记内容就只是童话绘本漫画。\n\t\n我感觉笔记制作难度很低，于是测了下能不能用Flowith实现，结果很炸裂：\n\t\n1⃣️ 我先输入了一句提示词：帮我写一个关于小兔子进森林的童话故事并对应生成漫画\n\t\n2⃣️ 它只花了几分钟，就创作了一本排版精美、画风统一的童话电子书。\n\t\n3⃣️ 我对结局不太满意，手动修改了一句故事情节，它就自动根据我的改写生成后续章节。\n\t\n分分钟就一条笔记内容就出来了，对标账号已经帮你验证了模式，你就只管发。\n#ai[话题]# #ai工具[话题]# #agent[话题]# #自媒体[话题]# #flowith[话题]#",
+    "timestamp": 1759135570000,
+    "published_at": "2025-09-29 08:46:10",
+    "tags": [
+      "ai",
+      "ai工具",
+      "agent",
+      "自媒体",
+      "flowith"
+    ],
+    "images_count": 5,
+    "comment_samples": []
+  },
+  {
+    "id": "68d6a2eb00000000120163e8",
+    "title": "这个提示词能让ChatGPT说话像真人",
+    "xsecToken": "ABpHbBj55NThFn98io9W6IwQmZo75m3bS5yvz6TEn2g70=",
+    "index": 6,
+    "has_detail": true,
+    "likes": 18,
+    "collects": 30,
+    "shares": 0,
+    "comments": 0,
+    "desc": "提示词：\n\t\n说明：\n\t\n✅ 使用主动语态\n错误示例：\"会议被管理层取消了。\"\n改为：\"管理层取消了会议。\"\n\t\n✅ 用 “你” 和 “你的” 直接对读者说话\n示例：\"你会发现这些策略能节省时间。\"\n\t\n✅ 表达直接简洁\n示例：\"下午3点打电话给我。\"\n\t\n✅ 使用简单的语言\n示例：\"我们需要解决这个问题。\"\n\t\n✅ 避免废话\n示例：\"项目失败了。\"\n\t\n✅ 聚焦清晰传达\n示例：\"请在周五前提交报销单。\"\n\t\n✅ 句式有长有短，形成节奏感\n示例：\"停一下。想想刚才发生了什么。再考虑我们要如何防止类似问题再次出现。\"\n\t\n✅ 保持自然、对话式语气\n示例：\"但现实中不是这样的。\"\n\t\n✅ 说实话，不要绕弯子\n示例：\"这个方法有问题。\"\n\t\n✅ 避免营销话术\n错误示例：\"我们最先进的解决方案带来无与伦比的成果。\"\n改为：\"这个工具可以帮你记录开销。\"\n\t\n✅ 简化语法\n示例：\"行，明天我们搞定。\"\n\t\n✅ 避免 AI 味的空话\n错误示例：\"让我们一起探索这个令人兴奋的机会。\"\n改为：\"我们目前掌握的情况是这样的：\"\n#ai[话题]# #ai工具[话题]# #gpt[话题]# #提示词[话题]#",
+    "timestamp": 1758896875000,
+    "published_at": "2025-09-26 14:27:55",
+    "tags": [
+      "ai",
+      "ai工具",
+      "gpt",
+      "提示词"
+    ],
+    "images_count": 5,
+    "comment_samples": []
+  },
+  {
+    "id": "68d375c9000000001202109c",
+    "title": "云栖大会现场，通义万象发布了大新闻",
+    "xsecToken": "ABJFdFTrt_yPt9DgUbcUzVCu-tNuS0P2tQgeB3AZoyl9Q=",
+    "index": 7,
+    "has_detail": false,
+    "likes": 19,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68d2a0ef0000000012014596",
+    "title": "别再乱用GPT，试试这个神级提示词",
+    "xsecToken": "ABMsXcQPoLMaK9mmDNZcZ3rLgY3XiZo3ZZscOZhW2N5RI=",
+    "index": 8,
+    "has_detail": false,
+    "likes": 17,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68cab5480000000013009d07",
+    "title": "X上疯传 让 AI 直接开挂的10个提示词技巧",
+    "xsecToken": "AB9g3jGim01hBQbQntNBQfDU5Eyy12KsNjmxIoy2cp7QU=",
+    "index": 9,
+    "has_detail": true,
+    "likes": 13,
+    "collects": 27,
+    "shares": 0,
+    "comments": 0,
+    "desc": "一旦你掌握了高级提示词技巧\nChatGPT、Grok、Gemini这几个A 就像开挂了一样\n\t\n这里有 10 个专业级的用法技巧(附模板)\n#ai[话题]# #ai工具[话题]# #提示词[话题]# #gpt[话题]#",
+    "timestamp": 1758115144000,
+    "published_at": "2025-09-17 13:19:04",
+    "tags": [
+      "ai",
+      "ai工具",
+      "提示词",
+      "gpt"
+    ],
+    "images_count": 11,
+    "comment_samples": []
+  },
+  {
+    "id": "68c81fb8000000001d001704",
+    "title": "X上疯传 5个提示词挖掘Claude最大潜力",
+    "xsecToken": "AB0_WHRmzZEYsr404CdWPF2Dn79jKjfEp7A-x5v1ZHUv4=",
+    "index": 10,
+    "has_detail": false,
+    "likes": 46,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68c6c58f000000001c03e916",
+    "title": "X上疯传 5个提示词让GPT-5成为你第二大脑",
+    "xsecToken": "ABLrU_xm4vlfp9jd3rLX7_4olzUR76ijUIrrDzl5to2vc=",
+    "index": 11,
+    "has_detail": false,
+    "likes": 61,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68c427a4000000001d008bd1",
+    "title": "X上疯传 Anthropic 发布免费提示词宝典",
+    "xsecToken": "ABoXbMZ98TrWkp4u_WlXGO7czdBvufH6Z_hVe5bst5318=",
+    "index": 12,
+    "has_detail": true,
+    "likes": 12,
+    "collects": 20,
+    "shares": 0,
+    "comments": 0,
+    "desc": "Anthropic 发布了一本提示词工程宝典。\n\t\n免费。写得惊人地好。\n还涵盖了大量 Claude 的真实使用场景。\n\t\n每一个搞 AI 的人都该收藏这本。打开他们的官网就能开始学习\n#ai[话题]# #ai工具[话题]# #claude[话题]# #anthropic[话题]#",
+    "timestamp": 1757685668000,
+    "published_at": "2025-09-12 14:01:08",
+    "tags": [
+      "ai",
+      "ai工具",
+      "claude",
+      "anthropic"
+    ],
+    "images_count": 7,
+    "comment_samples": []
+  },
+  {
+    "id": "68c186e2000000001d00abcd",
+    "title": "X上疯传 斯坦福发AI论文工具就像专业博士",
+    "xsecToken": "ABbnTseYttp3HQ8s_K6QK1vh54aQWRV-HGMB1Qw9i7LFU=",
+    "index": 13,
+    "has_detail": false,
+    "likes": 3325,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68c03494000000001d01273f",
+    "title": "X上疯传 只用提示词就能做一个AIAgent",
+    "xsecToken": "ABEZqwPzkDD1xq3iSqs1rPm-F5LmeJQx2Ytr2R53dMowQ=",
+    "index": 14,
+    "has_detail": true,
+    "likes": 201,
+    "collects": 370,
+    "shares": 0,
+    "comments": 6,
+    "desc": "R.I.P Perplexity.\n\t\n你再也不用每月花 $20 买 Perplexity 会员了。\n\t\n现在，你可以把任何大语言模型（如 Grok、ChatGPT、DeepSeek、Gemini 或 Qwen）变成一个7*24小时的研究助理。\n\t\n下面是我用来免费自动化所有调研任务的超级提示词\n#ai[话题]# #ai工具[话题]# #agent[话题]# #perplexity[话题]#",
+    "timestamp": 1757426836000,
+    "published_at": "2025-09-09 14:07:16",
+    "tags": [
+      "ai",
+      "ai工具",
+      "agent",
+      "perplexity"
+    ],
+    "images_count": 3,
+    "comment_samples": [
+      {
+        "content": "叫ai不要产生幻觉 就好像叫小朋友不要不乖一样 提示词应该明确要做的行动而不是做一些抽象的要求",
+        "likeCount": "11"
+      },
+      {
+        "content": "too simple...?",
+        "likeCount": "2"
+      },
+      {
+        "content": "prompts都是幻觉罢了，没用的",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68bede62000000001d00da05",
+    "title": "X上疯传 Google Gemini推出AI导师功能",
+    "xsecToken": "ABbyp08-iigeDrq5upDxmWo3Lf8EifiJueZQhY_g0rtHU=",
+    "index": 15,
+    "has_detail": true,
+    "likes": 24,
+    "collects": 24,
+    "shares": 0,
+    "comments": 0,
+    "desc": "Google Gemini 推出新功能「Guided Learning 」——一个能手把手教学的 AI 导师。\n\t\n通过步骤引导、知识点检查、测验和可视化辅助，让你更快掌握任何知识。\n#ai工具[话题]# #ai[话题]# #google[话题]# #gemini[话题]#",
+    "timestamp": 1757339234000,
+    "published_at": "2025-09-08 13:47:14",
+    "tags": [
+      "ai工具",
+      "ai",
+      "google",
+      "gemini"
+    ],
+    "images_count": 5,
+    "comment_samples": []
+  },
+  {
+    "id": "68bba50f000000001d009f15",
+    "title": "X上疯传 海外达人营销用这个AI就能搞定",
+    "xsecToken": "AB04elZMy1EL3heGMbDJ7Nr-gaZZtZ2l1iOgAk0u9SToI=",
+    "index": 16,
+    "has_detail": true,
+    "likes": 21,
+    "collects": 45,
+    "shares": 0,
+    "comments": 1,
+    "desc": "最近外网很多大V在聊一个AI营销工具叫Head AI，说它能“自己跑完达人营销流程”。\n\t\n我去了解下，结果发现它真的能做到“品牌自己一键完成达人投放”，而且跑出来的效果比我预想的要好。\n\t\n我自己做自媒体，也接触过找达人投放，说实话挺折腾：\n❗自己找达人，一封封发邮件、拉群、催内容，流程繁琐\n❗找代理又会遇到黑箱报价、佣金不透明、缺乏信任\n\t\n归根到底就是2个字：心累\n\t\nHead AI的思路是把最繁琐的环节交给系统自动完成，我试用了一下，大概流程如下：\n\t\n1⃣️ 输入产品的官网链接，系统会自动解析网站信息（目标人群、产品卖点等）\n2⃣️ 先选择你想投放的平台，比如X、ins等，系统会从全球达人库生成一个最优的组合方案，并给出定价。\n3⃣️ 系统自动发合作邀约\n4⃣️ 确认合作后，品牌上传投放brief，然后把投放款充值到平台托管账户，内容发布完成后，款项打给达人。\n\t\n说白了，原来要靠人工跑的部分流程，被AI替代掉了，省下不少沟通、比价的成本。\n\t\n对品牌来说，可以减少中介成本、降低沟通成本；对达人来说，系统托管付款也更有安全感。\n\t\n我觉得这个工具可能会颠覆不少现有做法，尤其是对预算有限、没有市场部、但又想试试海外投放的团队来说：\n\t\n✅ 不用组人力团队\n✅ 不用到处比价找中介\n✅ 就靠一个AI跑完整个流程，能低成本试个水\n\t\n至少从成本和试错门槛来看，是有优势的。\n#HeadAI[话题]# #达人营销[话题]# #AIagent[话题]#  #AI营销[话题]# #智能体[话题]# #AgenticAI[话题]##AI商业闭环[话题]# #AI重构行业[话题]#",
+    "timestamp": 1757127951000,
+    "published_at": "2025-09-06 03:05:51",
+    "tags": [
+      "HeadAI",
+      "达人营销",
+      "AIagent",
+      "AI营销",
+      "智能体",
+      "AgenticAI",
+      "AI商业闭环",
+      "AI重构行业"
+    ],
+    "images_count": 8,
+    "comment_samples": [
+      {
+        "content": "最新还了解到，HeadAI上如果达人不按要求制作内容、发布、虚假流量可追回费用[赞R]",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68baeff1000000001d00a5df",
+    "title": "X上疯传 如何让GPT-5帮你获取副业收入",
+    "xsecToken": "ABWR3WihfAqtuNFouvyhTPwy90X14u779Pa7lPEfLQCYg=",
+    "index": 17,
+    "has_detail": false,
+    "likes": 394,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68b99e45000000001d004256",
+    "title": "X上疯传 Nano Banana如何制作魔幻视频",
+    "xsecToken": "ABHFugpTjaX27tluwzWGkr7atoBPEH8-qQyDUJ0hHsG3w=",
+    "index": 18,
+    "has_detail": false,
+    "likes": 70,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68b83f63000000001c03f26d",
+    "title": "X上疯传 Google Gemini新发布功能强到离谱",
+    "xsecToken": "ABYXV80ZWWEWR1zwzXWYMp-26MDlxzbH3lPJ7mNwdohp0=",
+    "index": 19,
+    "has_detail": true,
+    "likes": 1457,
+    "collects": 932,
+    "shares": 0,
+    "comments": 169,
+    "desc": "重大更新：Google Gemini 刚刚发布了一批 ChatGPT 无法比拟的功能。\n\t\n从免费 Pro 计划到更强的 Deep Think 推理能力，真的有点离谱。\n#ai[话题]# #ai工具[话题]# #Google[话题]# #Gemini[话题]#",
+    "timestamp": 1756905315000,
+    "published_at": "2025-09-03 13:15:15",
+    "tags": [
+      "ai",
+      "ai工具",
+      "Google",
+      "Gemini"
+    ],
+    "images_count": 10,
+    "comment_samples": [
+      {
+        "content": "为什么每次看小红书都觉得gemini吊打gpt实际真的用起来真的觉得体验感很差……是因为我不用代码吗？",
+        "likeCount": "65"
+      },
+      {
+        "content": "什么时候能接管操作系统？比如我指挥，AI帮我完成文件移动、复制、粘贴等操作",
+        "likeCount": "56"
+      },
+      {
+        "content": "谷歌股价涨疯了[失望R]日常后悔买少了",
+        "likeCount": "50"
+      }
+    ]
+  },
+  {
+    "id": "68b5584f000000001d017c94",
+    "title": "没有编程经验只用AI工具就能上线一个网站?",
+    "xsecToken": "ABftdXoQcCV6vMEIf9bdFlAenwnoCvTfbhV13sipQiwNw=",
+    "index": 20,
+    "has_detail": false,
+    "likes": 80,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68b452d7000000001d011d0e",
+    "title": "X上疯传 如何用nano banana 制作酷炫动漫",
+    "xsecToken": "AB6birLAqCW8BqnHJ7hplTOXaZNM76c840MzdkH6LzqxM=",
+    "index": 21,
+    "has_detail": true,
+    "likes": 374,
+    "collects": 620,
+    "shares": 0,
+    "comments": 5,
+    "desc": "用 Nano Banana 和 Seedance 1.0 制作炫酷的 AI 动漫。\n\t\n操作非常简单，不到 2 小时就能完成。\n#ai[话题]# #ai工具[话题]# #Gemini[话题]# #nanobanana[话题]#",
+    "timestamp": 1756648151000,
+    "published_at": "2025-08-31 13:49:11",
+    "tags": [
+      "ai",
+      "ai工具",
+      "Gemini",
+      "nanobanana"
+    ],
+    "images_count": 11,
+    "comment_samples": [
+      {
+        "content": "千万别删[哭惹R][哭惹R]收藏一波",
+        "likeCount": "2"
+      },
+      {
+        "content": "有最终生成的视频吗？",
+        "likeCount": "0"
+      },
+      {
+        "content": "这个动画叫做什么呀？",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68b19b3c000000001c03ca69",
+    "title": "X上疯传 如何用Claude打造你的AI大脑",
+    "xsecToken": "ABzzS_HmJPFinFxmZEw8PI0ssHqMw23amb9Cwm7vV9Z_w=",
+    "index": 22,
+    "has_detail": true,
+    "likes": 60,
+    "collects": 86,
+    "shares": 0,
+    "comments": 0,
+    "desc": "Claude 刚刚通过一次更新，直接“掐死”了每月收费 500 美元的 AI 代理工具市场。\n\t\n这里是详细教程 ，教你如何把 Claude 打造成你企业的 AI 大脑\n#ai[话题]# #ai工具[话题]# #Claude[话题]# #AI代理[话题]#",
+    "timestamp": 1756470076000,
+    "published_at": "2025-08-29 12:21:16",
+    "tags": [
+      "ai",
+      "ai工具",
+      "Claude",
+      "AI代理"
+    ],
+    "images_count": 12,
+    "comment_samples": []
+  },
+  {
+    "id": "68b060b9000000001d00d5ce",
+    "title": "X上疯传 关于AI的5个致富机会",
+    "xsecToken": "AByTrj9UwkIevu7HQjQTqb8WyoEGmx76_JMFX7rmRTxgg=",
+    "index": 23,
+    "has_detail": false,
+    "likes": 81,
+    "collects": 0,
+    "shares": 0,
+    "comments": 0,
+    "desc": null,
+    "timestamp": null,
+    "published_at": null,
+    "tags": [],
+    "images_count": null,
+    "comment_samples": []
+  },
+  {
+    "id": "68af06b1000000001d0121a9",
+    "title": "X上疯传 AI要代替excel和数据部门?",
+    "xsecToken": "ABs-MEbdqKlaY68EQTJyNDScqYcpK2b0weXdMtZu21PkQ=",
+    "index": 24,
+    "has_detail": true,
+    "likes": 636,
+    "collects": 933,
+    "shares": 0,
+    "comments": 42,
+    "desc": "炸裂……这个爬虫就像自动驾驶一样。\n\t\n你只需要告诉它终点，它就会自己规划路线、点页面、清洗数据，最后交给你一份干净利落的表格。\n\t\n再见了，手动爬虫、Excel 和数据团队。\n\t\n这是教程 + 一些离谱的示例\n#ai[话题]# #ai工具[话题]# #ai数据[话题]#",
+    "timestamp": 1756300977000,
+    "published_at": "2025-08-27 13:22:57",
+    "tags": [
+      "ai",
+      "ai工具",
+      "ai数据"
+    ],
+    "images_count": 8,
+    "comment_samples": [
+      {
+        "content": "知道企业级原始数据长得有多恶心吗[笑哭R]",
+        "likeCount": "269"
+      },
+      {
+        "content": "怎么确定他没编数据？",
+        "likeCount": "30"
+      },
+      {
+        "content": "不行啊，公司全是秘密啊[捂脸R]不可能把数据给ai的[捂脸R]",
+        "likeCount": "9"
+      }
+    ]
+  },
+  {
+    "id": "68adb2da000000001d0093bf",
+    "title": "X上疯传 ChatGPT-5 万能提示词",
+    "xsecToken": "ABYklea5MWj9PK7yM2zyrubdiMaDdCK9y8ZQA9qFySJKA=",
+    "index": 25,
+    "has_detail": true,
+    "likes": 917,
+    "collects": 1415,
+    "shares": 0,
+    "comments": 3,
+    "desc": "突发：提示工程已经过时了。\n\t\n现在你只需要一个 ChatGPT-5 的万能提示。\n\t\n用它就能帮你生成任何你需要的提示。\n\t\n具体怎么用？这里有真实案例\n#ai[话题]# #ai工具[话题]# #提示词[话题]# #GPT[话题]#",
+    "timestamp": 1756213978000,
+    "published_at": "2025-08-26 13:12:58",
+    "tags": [
+      "ai",
+      "ai工具",
+      "提示词",
+      "GPT"
+    ],
+    "images_count": 7,
+    "comment_samples": [
+      {
+        "content": "AI做商业战略规划完全就是空中楼阁纸上谈兵[捂脸R]太不食人间烟火了[捂脸R]都是理想化的东西",
+        "likeCount": "11"
+      },
+      {
+        "content": "[偷笑R][偷笑R]",
+        "likeCount": "0"
+      },
+      {
+        "content": "好办法",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68ac6f10000000001d00e024",
+    "title": "X上疯传 超实用的AI写作技巧「人类模式」",
+    "xsecToken": "ABr9lwa3X6KH6kscAIFGO_EEsSgvvEozRkagYLobDsXMI=",
+    "index": 26,
+    "has_detail": true,
+    "likes": 344,
+    "collects": 548,
+    "shares": 0,
+    "comments": 4,
+    "desc": "突发：我发现了一个超实用的 AI 写作技巧，叫「人类模式」。\n\t\n不废话、不堆词、没有那种一看就是 AI 写的感觉。只有干净、具体、有力的句子。\n#ai[话题]# #ai工具[话题]# #ai文案[话题]#",
+    "timestamp": 1756131088000,
+    "published_at": "2025-08-25 14:11:28",
+    "tags": [
+      "ai",
+      "ai工具",
+      "ai文案"
+    ],
+    "images_count": 4,
+    "comment_samples": [
+      {
+        "content": "这个提示词就像AI写的",
+        "likeCount": "18"
+      },
+      {
+        "content": "这个内容就是AI写的吧",
+        "likeCount": "7"
+      },
+      {
+        "content": "我刷到过好几个跟你这样子的了，如果是真写的话，应该不会这样子。",
+        "likeCount": "0"
+      }
+    ]
+  },
+  {
+    "id": "68ab159b000000001d00b850",
+    "title": "X上疯传 只用一个提示词让AI代替Excel",
+    "xsecToken": "ABCOlsl-gCZcAdob6b3Iq08-qFsyVs-9oH7pfgoW5Jsf0=",
+    "index": 27,
+    "has_detail": true,
+    "likes": 261,
+    "collects": 375,
+    "shares": 0,
+    "comments": 5,
+    "desc": "突发：AI 刚刚终结了 Excel。\n\t\n别再为公式、筛选器和一堆乱七八糟的表格头疼了。\n\t\n现在只需要一个提示 → 就能得到结构清晰、随时可分析的数据结果。\n\t\n下面是几秒内搞定数据整理的方法\n#ai[话题]# #ai工具[话题]# #ai数据[话题]# #提升效率[话题]#",
+    "timestamp": 1756042651000,
+    "published_at": "2025-08-24 13:37:31",
+    "tags": [
+      "ai",
+      "ai工具",
+      "ai数据",
+      "提升效率"
+    ],
+    "images_count": 6,
+    "comment_samples": [
+      {
+        "content": "真能自动爬数据吗好牛啊，我现在在用联想百应AI做表，数据清洗关联分析数据可视化啥的它都行，就是得自己导入数据源和指令才能生成你要的表[皱眉R]",
+        "likeCount": "7"
+      },
+      {
+        "content": "注册要排队[笑哭R]不知道要排多久",
+        "likeCount": "2"
+      },
+      {
+        "content": "不能用",
+        "likeCount": "1"
+      }
+    ]
+  },
+  {
+    "id": "68a87ca9000000001d017b22",
+    "title": "X上疯传 如何用谷歌构建自己的AI助手",
+    "xsecToken": "AB_tMg41M1cRhNW_knfaR5Cs81rzG7f2SdDJ46aUO9FDo=",
+    "index": 28,
+    "has_detail": true,
+    "likes": 171,
+    "collects": 313,
+    "shares": 0,
+    "comments": 0,
+    "desc": "谷歌正在赋予每个人构建自己 AI 助手的能力。\n\t\n无需编码。不用订阅。完全免费。\n#ai[话题]# #ai工具[话题]# #aiagent[话题]# #google[话题]#",
+    "timestamp": 1755872425000,
+    "published_at": "2025-08-22 14:20:25",
+    "tags": [
+      "ai",
+      "ai工具",
+      "aiagent",
+      "google"
+    ],
+    "images_count": 6,
+    "comment_samples": []
+  },
+  {
+    "id": "68a72bd8000000001c03cb94",
+    "title": "X上疯传 Claude发布全新功能2分钟构建应用",
+    "xsecToken": "AB0C3jw28MzaW9lPaJHLgdKByQ90kpGICJMCwnFw6_ZdQ=",
+    "index": 29,
+    "has_detail": true,
+    "likes": 59,
+    "collects": 68,
+    "shares": 0,
+    "comments": 0,
+    "desc": "突发：Claude 推出全新能力！你可以直接在对话中构建、托管，甚至“发布”交互式应用程序。\n\t\n- 不需要写代码。\n- 不需要订阅服务。\n- 只要你有一个想法，就能上手。\n#ai[话题]# #ai工具[话题]# #claude[话题]#",
+    "timestamp": 1755786200000,
+    "published_at": "2025-08-21 14:23:20",
+    "tags": [
+      "ai",
+      "ai工具",
+      "claude"
+    ],
+    "images_count": 6,
+    "comment_samples": []
+  },
+  {
+    "id": "68a58e14000000001d0035ca",
+    "title": "中国开源模型御三家已定？",
+    "xsecToken": "ABxmHBh8wDIIO34mLZ2rpCeyEM9Qx5pNVa63Mdk-5vrUw=",
+    "index": 30,
+    "has_detail": true,
+    "likes": 166,
+    "collects": 20,
+    "shares": 0,
+    "comments": 0,
+    "desc": "Altman 在最新采访里提出，美国可能低估了中国 AI 的进展与威胁，特别是DeepSeek、KimiK2这类开源模型，也是OpenAI最近决定发布开源模型的因素。\n\t\n国内开源大模型三大阵营其实基本已经确定：DeepSeek、Kimi、Qwen，未来大模型的竞争，拼的不只是技术，还有生态和开源社区的凝聚力。\n\t\n#ai[话题]# #ai模型[话题]# #deepseek[话题]# #kimi[话题]# #qwen[话题]# #chatgpt[话题]#",
+    "timestamp": 1755680276000,
+    "published_at": "2025-08-20 08:57:56",
+    "tags": [
+      "ai",
+      "ai模型",
+      "deepseek",
+      "kimi",
+      "qwen",
+      "chatgpt"
+    ],
+    "images_count": 2,
+    "comment_samples": []
+  }
+]

@@ -1,0 +1,209 @@
+{
+  "total_posts": 31,
+  "posts_with_detail": 20,
+  "total_likes": 9027,
+  "avg_likes": 291.19354838709677,
+  "median_likes": 61,
+  "total_collects": 6017,
+  "avg_collects": 194.09677419354838,
+  "top5_likes": [
+    {
+      "id": "68c186e2000000001d00abcd",
+      "title": "X上疯传 斯坦福发AI论文工具就像专业博士",
+      "likes": 3325,
+      "published_at": null
+    },
+    {
+      "id": "68b83f63000000001c03f26d",
+      "title": "X上疯传 Google Gemini新发布功能强到离谱",
+      "likes": 1457,
+      "published_at": "2025-09-03 13:15:15"
+    },
+    {
+      "id": "68adb2da000000001d0093bf",
+      "title": "X上疯传 ChatGPT-5 万能提示词",
+      "likes": 917,
+      "published_at": "2025-08-26 13:12:58"
+    },
+    {
+      "id": "68af06b1000000001d0121a9",
+      "title": "X上疯传 AI要代替excel和数据部门?",
+      "likes": 636,
+      "published_at": "2025-08-27 13:22:57"
+    },
+    {
+      "id": "68baeff1000000001d00a5df",
+      "title": "X上疯传 如何让GPT-5帮你获取副业收入",
+      "likes": 394,
+      "published_at": null
+    }
+  ],
+  "top5_collects": [
+    {
+      "id": "68adb2da000000001d0093bf",
+      "title": "X上疯传 ChatGPT-5 万能提示词",
+      "collects": 1415,
+      "published_at": "2025-08-26 13:12:58"
+    },
+    {
+      "id": "68af06b1000000001d0121a9",
+      "title": "X上疯传 AI要代替excel和数据部门?",
+      "collects": 933,
+      "published_at": "2025-08-27 13:22:57"
+    },
+    {
+      "id": "68b83f63000000001c03f26d",
+      "title": "X上疯传 Google Gemini新发布功能强到离谱",
+      "collects": 932,
+      "published_at": "2025-09-03 13:15:15"
+    },
+    {
+      "id": "68b452d7000000001d011d0e",
+      "title": "X上疯传 如何用nano banana 制作酷炫动漫",
+      "collects": 620,
+      "published_at": "2025-08-31 13:49:11"
+    },
+    {
+      "id": "68ac6f10000000001d00e024",
+      "title": "X上疯传 超实用的AI写作技巧「人类模式」",
+      "collects": 548,
+      "published_at": "2025-08-25 14:11:28"
+    }
+  ],
+  "recent_notes": [
+    {
+      "id": "68f0ad2f0000000007002583",
+      "title": "GLM-4.6实测：为什么这个模型能在国外爆火",
+      "published_at": "2025-10-16 08:30:39",
+      "likes": 22,
+      "collects": 15
+    },
+    {
+      "id": "68ee52fa0000000007036885",
+      "title": "X上疯传的批量生成短视频开源工具",
+      "published_at": "2025-10-14 13:41:14",
+      "likes": 9,
+      "collects": 21
+    },
+    {
+      "id": "68da4752000000001203c073",
+      "title": "发现一个邪修起号的方法，免费分享出来",
+      "published_at": "2025-09-29 08:46:10",
+      "likes": 14,
+      "collects": 19
+    },
+    {
+      "id": "68d6a2eb00000000120163e8",
+      "title": "这个提示词能让ChatGPT说话像真人",
+      "published_at": "2025-09-26 14:27:55",
+      "likes": 18,
+      "collects": 30
+    },
+    {
+      "id": "68cab5480000000013009d07",
+      "title": "X上疯传 让 AI 直接开挂的10个提示词技巧",
+      "published_at": "2025-09-17 13:19:04",
+      "likes": 13,
+      "collects": 27
+    }
+  ],
+  "tags_top": [
+    {
+      "tag": "ai",
+      "count": 19
+    },
+    {
+      "tag": "ai工具",
+      "count": 17
+    },
+    {
+      "tag": "提示词",
+      "count": 3
+    },
+    {
+      "tag": "Gemini",
+      "count": 2
+    },
+    {
+      "tag": "agent",
+      "count": 2
+    },
+    {
+      "tag": "ai数据",
+      "count": 2
+    },
+    {
+      "tag": "claude",
+      "count": 2
+    },
+    {
+      "tag": "google",
+      "count": 2
+    },
+    {
+      "tag": "gpt",
+      "count": 2
+    },
+    {
+      "tag": "智能体",
+      "count": 2
+    }
+  ],
+  "detail_gaps": [
+    {
+      "id": "68df91bf0000000007033c1f",
+      "title": "用 AI 做百万美元级别广告短片",
+      "likes": 14
+    },
+    {
+      "id": "68dde79e000000000700ae2f",
+      "title": "OpenAI发布sora 2这招很牛，不卷模型卷应用",
+      "likes": 24
+    },
+    {
+      "id": "68d375c9000000001202109c",
+      "title": "云栖大会现场，通义万象发布了大新闻",
+      "likes": 19
+    },
+    {
+      "id": "68d2a0ef0000000012014596",
+      "title": "别再乱用GPT，试试这个神级提示词",
+      "likes": 17
+    },
+    {
+      "id": "68c81fb8000000001d001704",
+      "title": "X上疯传 5个提示词挖掘Claude最大潜力",
+      "likes": 46
+    },
+    {
+      "id": "68c6c58f000000001c03e916",
+      "title": "X上疯传 5个提示词让GPT-5成为你第二大脑",
+      "likes": 61
+    },
+    {
+      "id": "68c186e2000000001d00abcd",
+      "title": "X上疯传 斯坦福发AI论文工具就像专业博士",
+      "likes": 3325
+    },
+    {
+      "id": "68baeff1000000001d00a5df",
+      "title": "X上疯传 如何让GPT-5帮你获取副业收入",
+      "likes": 394
+    },
+    {
+      "id": "68b99e45000000001d004256",
+      "title": "X上疯传 Nano Banana如何制作魔幻视频",
+      "likes": 70
+    },
+    {
+      "id": "68b5584f000000001d017c94",
+      "title": "没有编程经验只用AI工具就能上线一个网站?",
+      "likes": 80
+    },
+    {
+      "id": "68b060b9000000001d00d5ce",
+      "title": "X上疯传 关于AI的5个致富机会",
+      "likes": 81
+    }
+  ]
+}
