@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/ajia1206/xhs-mcp/errors"
 	"github.com/go-rod/rod"
-	"github.com/xpzouying/xiaohongshu-mcp/errors"
 )
 
 type SearchResult struct {

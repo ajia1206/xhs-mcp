@@ -1,6 +1,6 @@
 package main
 
-import "github.com/xpzouying/xiaohongshu-mcp/xiaohongshu"
+import "github.com/ajia1206/xhs-mcp/xiaohongshu"
 
 // HTTP API 响应类型
 

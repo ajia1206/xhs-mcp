@@ -1,4 +1,4 @@
-module github.com/xpzouying/xiaohongshu-mcp
+module github.com/ajia1206/xhs-mcp
 
 go 1.23.2
 

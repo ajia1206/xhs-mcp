@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/ajia1206/xhs-mcp/xiaohongshu"
 	"github.com/sirupsen/logrus"
-	"github.com/xpzouying/xiaohongshu-mcp/xiaohongshu"
 )
 
 // mcpLogEntry 创建 MCP 操作的日志条目

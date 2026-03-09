@@ -6,8 +6,8 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/ajia1206/xhs-mcp/configs"
 	"github.com/sirupsen/logrus"
-	"github.com/xpzouying/xiaohongshu-mcp/configs"
 )
 
 // 应用版本常量

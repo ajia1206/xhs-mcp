@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/ajia1206/xhs-mcp/errors"
 	"github.com/go-rod/rod"
 	"github.com/sirupsen/logrus"
-	"github.com/xpzouying/xiaohongshu-mcp/errors"
 )
 
 // FeedDetailAction 表示 Feed 详情页动作

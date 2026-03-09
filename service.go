@@ -8,14 +8,14 @@ import (
 	"os"
 	"time"
 
+	"github.com/ajia1206/xhs-mcp/browser"
+	"github.com/ajia1206/xhs-mcp/configs"
+	"github.com/ajia1206/xhs-mcp/cookies"
+	"github.com/ajia1206/xhs-mcp/pkg/downloader"
+	"github.com/ajia1206/xhs-mcp/xiaohongshu"
 	"github.com/go-rod/rod"
 	"github.com/mattn/go-runewidth"
 	"github.com/sirupsen/logrus"
-	"github.com/xpzouying/xiaohongshu-mcp/browser"
-	"github.com/xpzouying/xiaohongshu-mcp/configs"
-	"github.com/xpzouying/xiaohongshu-mcp/cookies"
-	"github.com/xpzouying/xiaohongshu-mcp/pkg/downloader"
-	"github.com/xpzouying/xiaohongshu-mcp/xiaohongshu"
 )
 
 var (

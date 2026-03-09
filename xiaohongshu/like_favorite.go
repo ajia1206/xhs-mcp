@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"time"
 
+	myerrors "github.com/ajia1206/xhs-mcp/errors"
 	"github.com/go-rod/rod"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	myerrors "github.com/xpzouying/xiaohongshu-mcp/errors"
 )
 
 // ActionResult 通用动作响应（点赞/收藏等）

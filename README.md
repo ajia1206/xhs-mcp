@@ -60,6 +60,7 @@ go build -o xiaohongshu-mcp .
 | `XHS_MCP_PORT` | 服务端口 |
 | `XHS_MCP_LOG_LEVEL` | 日志级别 |
 | `XHS_MCP_HEADLESS` | 是否无头模式 |
+| `COOKIES_PATH` | Cookie 文件路径，默认 `cookies.json` |
 
 ## API 接口
 
@@ -122,6 +123,6 @@ go build -o xiaohongshu-mcp .
 ## 注意事项
 
 1. 首次使用需要扫码登录小红书。
-2. 登录状态会保存在 `cookies.json` 或 `cookies/cookies.json` 中。
+2. 登录状态默认保存在 `cookies.json` 中；如需自定义路径，请设置 `COOKIES_PATH`。
 3. 发布内容需要遵守小红书社区规范。
 4. 建议指定浏览器路径以获得更稳定的表现。

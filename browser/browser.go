@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"time"
 
+	"github.com/ajia1206/xhs-mcp/cookies"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
 	"github.com/sirupsen/logrus"
-	"github.com/xpzouying/xiaohongshu-mcp/cookies"
 )
 
 // Browser 包装 rod.Browser，提供 cookie 管理

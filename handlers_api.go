@@ -1,14 +1,13 @@
 package main
 
 import (
-    "encoding/base64"
-    "net/http"
-    "strings"
+	"encoding/base64"
+	"net/http"
+	"strings"
 
-    "github.com/xpzouying/xiaohongshu-mcp/xiaohongshu"
-
-    "github.com/gin-gonic/gin"
-    "github.com/sirupsen/logrus"
+	"github.com/ajia1206/xhs-mcp/xiaohongshu"
+	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 )
 
 // respondError 返回错误响应
@@ -55,45 +54,45 @@ func (s *AppServer) checkLoginStatusHandler(c *gin.Context) {
 // getLoginQrcodeHandler 处理 [GET /api/login/qrcode] 请求。
 // 用于生成并返回登录二维码（Base64 图片 + 超时时间），供前端展示给用户扫码登录。
 func (s *AppServer) getLoginQrcodeHandler(c *gin.Context) {
-    result, err := s.xiaohongshuService.GetLoginQrcode(c.Request.Context())
-    if err != nil {
-        respondError(c, http.StatusInternalServerError, "STATUS_CHECK_FAILED",
-            "获取登录二维码失败", err.Error())
-        return
-    }
+	result, err := s.xiaohongshuService.GetLoginQrcode(c.Request.Context())
+	if err != nil {
+		respondError(c, http.StatusInternalServerError, "STATUS_CHECK_FAILED",
+			"获取登录二维码失败", err.Error())
+		return
+	}
 
-    respondSuccess(c, result, "获取登录二维码成功")
+	respondSuccess(c, result, "获取登录二维码成功")
 }
 
 func (s *AppServer) getLoginQrcodeImageHandler(c *gin.Context) {
-    result, err := s.xiaohongshuService.GetLoginQrcode(c.Request.Context())
-    if err != nil {
-        respondError(c, http.StatusInternalServerError, "STATUS_CHECK_FAILED",
-            "获取登录二维码失败", err.Error())
-        return
-    }
+	result, err := s.xiaohongshuService.GetLoginQrcode(c.Request.Context())
+	if err != nil {
+		respondError(c, http.StatusInternalServerError, "STATUS_CHECK_FAILED",
+			"获取登录二维码失败", err.Error())
+		return
+	}
 
-    if result.IsLoggedIn {
-        respondSuccess(c, map[string]any{"message": "当前已登录，无需扫码"}, "已登录")
-        return
-    }
+	if result.IsLoggedIn {
+		respondSuccess(c, map[string]any{"message": "当前已登录，无需扫码"}, "已登录")
+		return
+	}
 
-    img := result.Img
-    if img == "" {
-        respondError(c, http.StatusInternalServerError, "EMPTY_QRCODE",
-            "二维码数据为空", nil)
-        return
-    }
+	img := result.Img
+	if img == "" {
+		respondError(c, http.StatusInternalServerError, "EMPTY_QRCODE",
+			"二维码数据为空", nil)
+		return
+	}
 
-    base64Data := strings.TrimPrefix(img, "data:image/png;base64,")
-    data, err := base64.StdEncoding.DecodeString(base64Data)
-    if err != nil {
-        respondError(c, http.StatusInternalServerError, "DECODE_FAILED",
-            "二维码解码失败", err.Error())
-        return
-    }
+	base64Data := strings.TrimPrefix(img, "data:image/png;base64,")
+	data, err := base64.StdEncoding.DecodeString(base64Data)
+	if err != nil {
+		respondError(c, http.StatusInternalServerError, "DECODE_FAILED",
+			"二维码解码失败", err.Error())
+		return
+	}
 
-    c.Data(http.StatusOK, "image/png", data)
+	c.Data(http.StatusOK, "image/png", data)
 }
 
 // publishHandler 发布内容
