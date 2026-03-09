@@ -147,7 +147,7 @@ type SearchAction struct {
 }
 
 func NewSearchAction(page *rod.Page) *SearchAction {
-	pp := page.Timeout(60 * time.Second)
+	pp := page.Timeout(120 * time.Second)
 
 	return &SearchAction{page: pp}
 }
@@ -157,7 +157,6 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 
 	// 直接跳转到搜索页面（NewPage 已经访问过首页）
 	searchURL := makeSearchURL(keyword)
-	fmt.Printf("[DEBUG] 跳转到搜索页面: %s\n", searchURL)
 	page.MustNavigate(searchURL)
 	page.MustWaitStable()
 
@@ -166,37 +165,19 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 	// 等待页面数据加载（搜索页面需要更多时间）
 	time.Sleep(3 * time.Second)
 
-	// 调试：检查搜索页面的登录状态
-	hasAvatar2 := page.MustEval(`() => document.querySelector('.avatar-img') !== null`).Bool()
-	hasLoginBtn2 := page.MustEval(`() => document.querySelector('.login-btn') !== null`).Bool()
-	fmt.Printf("[DEBUG] 搜索页 - hasAvatar: %v, hasLoginBtn: %v\n", hasAvatar2, hasLoginBtn2)
-
-	// 调试：检查 __INITIAL_STATE__ 结构
-	hasSearch := page.MustEval(`() => !!(window.__INITIAL_STATE__?.search?.feeds)`).Bool()
-	hasFeed := page.MustEval(`() => !!(window.__INITIAL_STATE__?.feed?.feeds)`).Bool()
-	fmt.Printf("[DEBUG] hasSearch.feeds: %v, hasFeed.feeds: %v\n", hasSearch, hasFeed)
-
 	// 如果 search.feeds 为空，尝试滚动触发加载
+	hasSearch := page.MustEval(`() => !!(window.__INITIAL_STATE__?.search?.feeds)`).Bool()
 	if hasSearch {
 		dataLen := page.MustEval(`() => {
 			const feeds = window.__INITIAL_STATE__?.search?.feeds;
 			const data = feeds?.value || feeds?._value;
 			return data ? data.length : -1;
 		}`).Int()
-		fmt.Printf("[DEBUG] search.feeds length (before scroll): %d\n", dataLen)
 
 		// 如果为空，尝试滚动加载
 		if dataLen == 0 {
-			fmt.Printf("[DEBUG] 尝试滚动加载数据...\n")
 			page.MustEval(`() => window.scrollTo(0, document.body.scrollHeight)`)
 			time.Sleep(2 * time.Second)
-
-			dataLen = page.MustEval(`() => {
-				const feeds = window.__INITIAL_STATE__?.search?.feeds;
-				const data = feeds?.value || feeds?._value;
-				return data ? data.length : -1;
-			}`).Int()
-			fmt.Printf("[DEBUG] search.feeds length (after scroll): %d\n", dataLen)
 		}
 	}
 
@@ -256,7 +237,6 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 
 		// 如果 search.feeds 为空，尝试从 feed.feeds 获取
 		if result == "" {
-			fmt.Printf("[DEBUG] search.feeds 为空，尝试 feed.feeds...\n")
 			result = page.MustEval(`() => {
 				if (window.__INITIAL_STATE__ &&
 				    window.__INITIAL_STATE__.feed &&
@@ -293,8 +273,8 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 	}
 
 	// 增加滚动抓取：循环下拉，直到没有新数据或达到最大滚动次数
-	const maxScroll = 30              // 最多滚动次数
-	const noNewThreshold = 5          // 连续无新增阈值
+	const maxScroll = 10              // 最多滚动次数（优化：从30减少到10）
+	const noNewThreshold = 3          // 连续无新增阈值（优化：从5减少到3）
 	const waitBetween = time.Second   // 滚动后等待时间
 	seen := make(map[string]struct{}) // 去重
 	var collected []Feed

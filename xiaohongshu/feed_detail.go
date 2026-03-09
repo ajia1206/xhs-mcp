@@ -23,7 +23,7 @@ func NewFeedDetailAction(page *rod.Page) *FeedDetailAction {
 
 // GetFeedDetail 获取 Feed 详情页数据
 func (f *FeedDetailAction) GetFeedDetail(ctx context.Context, feedID, xsecToken string) (*FeedDetailResponse, error) {
-	page := f.page.Context(ctx).Timeout(60 * time.Second)
+	page := f.page.Context(ctx).Timeout(120 * time.Second)
 
 	// 构建详情页 URL
 	url := makeFeedDetailURL(feedID, xsecToken)

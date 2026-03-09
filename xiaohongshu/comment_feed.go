@@ -20,7 +20,7 @@ func NewCommentFeedAction(page *rod.Page) *CommentFeedAction {
 
 // PostComment 发表评论到 Feed
 func (f *CommentFeedAction) PostComment(ctx context.Context, feedID, xsecToken, content string) error {
-	page := f.page.Context(ctx).Timeout(60 * time.Second)
+	page := f.page.Context(ctx).Timeout(120 * time.Second)
 
 	// 构建详情页 URL
 	url := makeFeedDetailURL(feedID, xsecToken)
