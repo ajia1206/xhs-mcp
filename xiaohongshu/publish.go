@@ -319,15 +319,8 @@ func inputTags(contentElem *rod.Element, tags []string) {
 }
 
 func inputTag(contentElem *rod.Element, tag string) {
-	contentElem.MustInput("#")
-	time.Sleep(200 * time.Millisecond)
-
-	for _, char := range tag {
-		contentElem.MustInput(string(char))
-		time.Sleep(50 * time.Millisecond)
-	}
-
-	time.Sleep(1 * time.Second)
+	contentElem.MustInput("#" + tag)
+	time.Sleep(1500 * time.Millisecond)
 
 	page := contentElem.Page()
 	topicContainer, err := page.Element("#creator-editor-topic-container")
@@ -336,19 +329,14 @@ func inputTag(contentElem *rod.Element, tag string) {
 		if err == nil && firstItem != nil {
 			firstItem.MustClick()
 			slog.Info("成功点击标签联想选项", "tag", tag)
-			time.Sleep(200 * time.Millisecond)
-		} else {
-			slog.Warn("未找到标签联想选项，直接输入空格", "tag", tag)
-			// 如果没有找到联想选项，输入空格结束
-			contentElem.MustInput(" ")
+			time.Sleep(300 * time.Millisecond)
+			return
 		}
-	} else {
-		slog.Warn("未找到标签联想下拉框，直接输入空格", "tag", tag)
-		// 如果没有找到下拉框，输入空格结束
-		contentElem.MustInput(" ")
 	}
 
-	time.Sleep(500 * time.Millisecond) // 等待标签处理完成
+	slog.Warn("未找到标签联想下拉框，直接输入空格", "tag", tag)
+	contentElem.MustInput(" ")
+	time.Sleep(300 * time.Millisecond)
 }
 
 func findTextboxByPlaceholder(page *rod.Page) (*rod.Element, error) {
