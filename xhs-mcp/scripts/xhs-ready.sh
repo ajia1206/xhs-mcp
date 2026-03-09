@@ -14,11 +14,31 @@ set -euo pipefail
 # Requirements: curl, jq, rg (ripgrep), base64, lsof, open (macOS)
 
 PORT=${PORT:-18060}
-BIN=${BIN:-"./xiaohongshu-mcp-darwin-arm64"}
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+ROOT_DIR=$(cd "${SCRIPT_DIR}/.." && pwd)
+
+DEFAULT_BIN=""
+for candidate in \
+  "${ROOT_DIR}/mcp/xiaohongshu-mcp" \
+  "${ROOT_DIR}/xiaohongshu-mcp-darwin-arm64"
+do
+  if [[ -x "${candidate}" ]]; then
+    DEFAULT_BIN="${candidate}"
+    break
+  fi
+done
+
+if [[ -z "${DEFAULT_BIN}" ]]; then
+  DEFAULT_BIN="${ROOT_DIR}/mcp/xiaohongshu-mcp"
+fi
+
+BIN=${BIN:-"${DEFAULT_BIN}"}
 CHROME_BIN_DEFAULT="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 log() { printf "[xhs-ready] %s\n" "$*"; }
 fail() { printf "[xhs-ready] ERROR: %s\n" "$*" >&2; exit 1; }
+
+[[ -x "${BIN}" ]] || fail "Binary not found or not executable: ${BIN}"
 
 # 1) Start server if needed
 if ! lsof -tiTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
@@ -100,4 +120,3 @@ if [[ $# -gt 0 ]]; then
 else
   log "MCP ready on :$PORT (SESSION=$SESSION)"
 fi
-

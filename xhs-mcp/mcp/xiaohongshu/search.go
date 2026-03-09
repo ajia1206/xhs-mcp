@@ -5,12 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
-	"strings"
-	"sync"
 	"time"
 
 	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/proto"
 	"github.com/xpzouying/xiaohongshu-mcp/errors"
 )
 
@@ -158,11 +155,50 @@ func NewSearchAction(page *rod.Page) *SearchAction {
 func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...FilterOption) ([]Feed, error) {
 	page := s.page.Context(ctx)
 
+	// 直接跳转到搜索页面（NewPage 已经访问过首页）
 	searchURL := makeSearchURL(keyword)
+	fmt.Printf("[DEBUG] 跳转到搜索页面: %s\n", searchURL)
 	page.MustNavigate(searchURL)
 	page.MustWaitStable()
 
 	page.MustWait(`() => window.__INITIAL_STATE__ !== undefined`)
+
+	// 等待页面数据加载（搜索页面需要更多时间）
+	time.Sleep(3 * time.Second)
+
+	// 调试：检查搜索页面的登录状态
+	hasAvatar2 := page.MustEval(`() => document.querySelector('.avatar-img') !== null`).Bool()
+	hasLoginBtn2 := page.MustEval(`() => document.querySelector('.login-btn') !== null`).Bool()
+	fmt.Printf("[DEBUG] 搜索页 - hasAvatar: %v, hasLoginBtn: %v\n", hasAvatar2, hasLoginBtn2)
+
+	// 调试：检查 __INITIAL_STATE__ 结构
+	hasSearch := page.MustEval(`() => !!(window.__INITIAL_STATE__?.search?.feeds)`).Bool()
+	hasFeed := page.MustEval(`() => !!(window.__INITIAL_STATE__?.feed?.feeds)`).Bool()
+	fmt.Printf("[DEBUG] hasSearch.feeds: %v, hasFeed.feeds: %v\n", hasSearch, hasFeed)
+
+	// 如果 search.feeds 为空，尝试滚动触发加载
+	if hasSearch {
+		dataLen := page.MustEval(`() => {
+			const feeds = window.__INITIAL_STATE__?.search?.feeds;
+			const data = feeds?.value || feeds?._value;
+			return data ? data.length : -1;
+		}`).Int()
+		fmt.Printf("[DEBUG] search.feeds length (before scroll): %d\n", dataLen)
+
+		// 如果为空，尝试滚动加载
+		if dataLen == 0 {
+			fmt.Printf("[DEBUG] 尝试滚动加载数据...\n")
+			page.MustEval(`() => window.scrollTo(0, document.body.scrollHeight)`)
+			time.Sleep(2 * time.Second)
+
+			dataLen = page.MustEval(`() => {
+				const feeds = window.__INITIAL_STATE__?.search?.feeds;
+				const data = feeds?.value || feeds?._value;
+				return data ? data.length : -1;
+			}`).Int()
+			fmt.Printf("[DEBUG] search.feeds length (after scroll): %d\n", dataLen)
+		}
+	}
 
 	// 如果有筛选条件，则应用筛选
 	if len(filters) > 0 {
@@ -195,13 +231,14 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 	}
 
 	fetchFeeds := func() ([]Feed, error) {
+		// 尝试从 search.feeds 获取
 		result := page.MustEval(`() => {
 			if (window.__INITIAL_STATE__ &&
 			    window.__INITIAL_STATE__.search &&
 			    window.__INITIAL_STATE__.search.feeds) {
 				const feeds = window.__INITIAL_STATE__.search.feeds;
 				const feedsData = feeds.value !== undefined ? feeds.value : feeds._value;
-				if (feedsData) {
+				if (feedsData && feedsData.length > 0) {
 					const seen = new WeakSet();
 					return JSON.stringify(feedsData, function(key, value) {
 						if (typeof value === "object" && value !== null) {
@@ -216,6 +253,32 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 			}
 			return "";
 		}`).String()
+
+		// 如果 search.feeds 为空，尝试从 feed.feeds 获取
+		if result == "" {
+			fmt.Printf("[DEBUG] search.feeds 为空，尝试 feed.feeds...\n")
+			result = page.MustEval(`() => {
+				if (window.__INITIAL_STATE__ &&
+				    window.__INITIAL_STATE__.feed &&
+				    window.__INITIAL_STATE__.feed.feeds) {
+					const feeds = window.__INITIAL_STATE__.feed.feeds;
+					const feedsData = feeds.value !== undefined ? feeds.value : feeds._value;
+					if (feedsData && feedsData.length > 0) {
+						const seen = new WeakSet();
+						return JSON.stringify(feedsData, function(key, value) {
+							if (typeof value === "object" && value !== null) {
+								if (seen.has(value)) {
+									return;
+								}
+								seen.add(value);
+							}
+							return value;
+						});
+					}
+				}
+				return "";
+			}`).String()
+		}
 
 		if result == "" {
 			return nil, errors.ErrNoFeeds
@@ -238,28 +301,8 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 	noNewCount := 0
 	lastTotal := 0
 
-	// 捕获搜索 API 返回体，用于兜底合并
-	var apiBodies []string
-	var apiMu sync.Mutex
-	stopCapture := page.EachEvent(func(e *proto.NetworkResponseReceived) bool {
-		// 当外部关闭时退出
-		select {
-		case <-ctx.Done():
-			return true
-		default:
-		}
-
-		if strings.Contains(e.Response.URL, "/api/sns/web/v1/search/notes") {
-			body, err := proto.NetworkGetResponseBody{RequestID: e.RequestID}.Call(page)
-			if err == nil && body.Body != "" {
-				apiMu.Lock()
-				apiBodies = append(apiBodies, body.Body)
-				apiMu.Unlock()
-			}
-		}
-		return false
-	}, &proto.NetworkResponseReceived{})
-	go stopCapture()
+	// TODO: 网络监听功能暂时禁用，需要更新 Rod API 用法
+	// 使用页面 JavaScript 获取数据已经足够
 
 	for i := 0; i < maxScroll; i++ {
 		feeds, err := fetchFeeds()
@@ -291,15 +334,6 @@ func (s *SearchAction) Search(ctx context.Context, keyword string, filters ...Fi
 
 	if len(collected) == 0 {
 		return nil, errors.ErrNoFeeds
-	}
-
-	// 合并 API 捕获的结果（若有）
-	apiFeeds := parseFeedsFromAPIBodies(apiBodies)
-	for _, f := range apiFeeds {
-		if _, ok := seen[f.ID]; !ok {
-			seen[f.ID] = struct{}{}
-			collected = append(collected, f)
-		}
 	}
 
 	return collected, nil

@@ -11,7 +11,6 @@ import (
 	"github.com/go-rod/rod"
 	"github.com/mattn/go-runewidth"
 	"github.com/sirupsen/logrus"
-	"github.com/xpzouying/headless_browser"
 	"github.com/xpzouying/xiaohongshu-mcp/browser"
 	"github.com/xpzouying/xiaohongshu-mcp/configs"
 	"github.com/xpzouying/xiaohongshu-mcp/cookies"
@@ -114,19 +113,19 @@ func withBrowser[T any](operation func(*rod.Page) (T, error)) (T, error) {
 
 	b := newBrowser()
 	defer func() {
-		if err := b.Close(); err != nil {
-			logrus.WithError(err).Warn("关闭浏览器失败")
-		}
+		b.Close()
 	}()
 
 	page := b.NewPage()
 	defer func() {
-		if err := page.Close(); err != nil {
-			logrus.WithError(err).Warn("关闭页面失败")
-		}
+		page.Close()
 	}()
 
-	return operation(page)
+	result, err := operation(page)
+	if err != nil {
+		return zero, err
+	}
+	return result, nil
 }
 
 // withBrowserNoResult 创建浏览器上下文并执行操作（无返回值）
@@ -417,7 +416,7 @@ func (s *XiaohongshuService) UnfavoriteFeed(ctx context.Context, feedID, xsecTok
 	return &ActionResult{FeedID: feedID, Success: true, Message: "取消收藏成功或未收藏"}, nil
 }
 
-func newBrowser() *headless_browser.Browser {
+func newBrowser() *browser.Browser {
 	return browser.NewBrowser(configs.IsHeadless(), browser.WithBinPath(configs.GetBinPath()))
 }
 

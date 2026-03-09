@@ -14,6 +14,7 @@ go1.*.tar.gz
 xiaohongshu-*-darwin-arm64
 xiaohongshu-*.bak
 *.zip.bad
+mcp/xiaohongshu-mcp
 
 # Logs
 *.log
