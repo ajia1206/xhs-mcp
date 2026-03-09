@@ -1,0 +1,31 @@
+node_modules
+package.json
+bun.lock
+
+# macOS
+.DS_Store
+
+# Go
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go1.*.tar.gz
+
+# Binaries
+xiaohongshu-*-darwin-arm64
+xiaohongshu-*.bak
+xiaohongshu-mcp
+*.zip.bad
+
+# Logs
+*.log
+*.pid
+
+# Secrets
+cookies.json
+
+# Local leftovers from previous nested layout
+xhs-mcp/

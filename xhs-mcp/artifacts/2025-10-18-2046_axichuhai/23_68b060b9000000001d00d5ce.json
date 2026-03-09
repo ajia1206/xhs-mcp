@@ -1,1 +1,0 @@
-{"jsonrpc":"2.0","id":"detail-23","result":{"content":[{"type":"text","text":"工具 get_feed_detail 执行时发生内部错误: navigation failed: net::ERR_SOCKET_NOT_CONNECTED\n\n请查看服务端日志获取详细信息。"}],"isError":true}}
