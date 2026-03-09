@@ -2,6 +2,8 @@
 
 小红书 MCP 服务器，支持通过 MCP 协议与小红书进行交互，包括发布图文/视频、搜索内容、获取笔记详情、用户主页、点赞收藏等功能。
 
+> **项目说明**: 本项目最初基于 [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp) 进行深度优化和重构，修复了多项关键问题并增强了功能。
+
 ## 功能特性
 
 - **登录管理**：扫码登录、登录状态检查
@@ -145,6 +147,25 @@ xhs-mcp/
 - [go-rod/rod](https://github.com/go-rod/rod) - 浏览器自动化
 - [logrus](https://github.com/sirupsen/logren) - 日志库
 - [MCP Go SDK](https://github.com/modelcontextprotocol/go-sdk) - MCP 协议实现
+
+## 优化改进
+
+本项目在原始代码基础上进行了以下关键优化：
+
+### 🔧 核心修复
+- **Cookie 持久化修复** - 修复了 cookie expires 字段类型不匹配问题，确保登录状态能正确保存约 1 年
+- **搜索功能重构** - 移除了有问题的网络监听代码，改用页面 JS 执行获取数据，提高稳定性
+- **用户主页增强** - 添加滚动加载逻辑，可获取全部笔记（从 30 篇提升到 150-220 篇）
+
+### 🚀 性能优化
+- 重构服务层代码结构，提高可维护性
+- 优化 MCP 处理器响应速度
+- 改进浏览器实例管理
+
+### ✨ 功能增强
+- 完善 HTTP API 端点，支持直接 API 调用
+- 添加详细的错误处理和日志记录
+- 优化配置文件管理
 
 ## 许可证
 
