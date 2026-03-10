@@ -28,7 +28,9 @@ type PublishAction struct {
 }
 
 const (
-	urlOfPublic = `https://creator.xiaohongshu.com/publish/publish?source=official`
+	urlOfPublic             = `https://creator.xiaohongshu.com/publish/publish?source=official`
+	tagSuggestionTimeout    = 800 * time.Millisecond
+	tagSuggestionPollPeriod = 100 * time.Millisecond
 )
 
 func NewPublishImageAction(page *rod.Page) (*PublishAction, error) {
@@ -320,23 +322,63 @@ func inputTags(contentElem *rod.Element, tags []string) {
 
 func inputTag(contentElem *rod.Element, tag string) {
 	contentElem.MustInput("#" + tag)
-	time.Sleep(1500 * time.Millisecond)
 
-	page := contentElem.Page()
-	topicContainer, err := page.Element("#creator-editor-topic-container")
-	if err == nil && topicContainer != nil {
-		firstItem, err := topicContainer.Element(".item")
-		if err == nil && firstItem != nil {
-			firstItem.MustClick()
-			slog.Info("成功点击标签联想选项", "tag", tag)
-			time.Sleep(300 * time.Millisecond)
-			return
-		}
+	if waitForTopicSuggestion(contentElem.Page(), tagSuggestionTimeout, tagSuggestionPollPeriod) {
+		slog.Info("成功点击标签联想选项", "tag", tag)
+		time.Sleep(200 * time.Millisecond)
+		return
 	}
 
 	slog.Warn("未找到标签联想下拉框，直接输入空格", "tag", tag)
 	contentElem.MustInput(" ")
 	time.Sleep(300 * time.Millisecond)
+}
+
+func waitForTopicSuggestion(page *rod.Page, timeout, interval time.Duration) bool {
+	return waitForCondition(timeout, interval, time.Now, time.Sleep, func() bool {
+		firstItem := findTopicSuggestionItem(page)
+		if firstItem == nil {
+			return false
+		}
+
+		firstItem.MustClick()
+		return true
+	})
+}
+
+func waitForCondition(timeout, interval time.Duration, now func() time.Time, sleep func(time.Duration), check func() bool) bool {
+	deadline := now().Add(timeout)
+
+	for {
+		if check() {
+			return true
+		}
+
+		current := now()
+		if !current.Before(deadline) {
+			return false
+		}
+
+		sleepFor := interval
+		if remaining := deadline.Sub(current); remaining < sleepFor {
+			sleepFor = remaining
+		}
+		sleep(sleepFor)
+	}
+}
+
+func findTopicSuggestionItem(page *rod.Page) *rod.Element {
+	topicContainer, err := page.Element("#creator-editor-topic-container")
+	if err != nil || topicContainer == nil {
+		return nil
+	}
+
+	firstItem, err := topicContainer.Element(".item")
+	if err != nil || firstItem == nil {
+		return nil
+	}
+
+	return firstItem
 }
 
 func findTextboxByPlaceholder(page *rod.Page) (*rod.Element, error) {
